@@ -1,4 +1,6 @@
-.tooltip {
+@import 'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-facebook.svg';
+
+.selectShr {
 	transform: scale3d(0.1, 0.2 ,1);
 	transform-origin: 50% 120%;
 	transition: opacity 0.3s, transform 0.3s;
@@ -13,7 +15,7 @@
   background: #262625;
 }
 
-.tooltip::after {
+.selectShr::after {
 	content: '';
 	position: absolute;
 	width: 14px;
@@ -24,7 +26,7 @@
 	transform: translateX(-50%) rotate3d(0,0,1,45deg);	
 }
 
-.tooltip-open {
+.selectShr-open {
 	opacity: 1;
 	pointer-events: auto;
 	transform: scale3d(1,1,1);
