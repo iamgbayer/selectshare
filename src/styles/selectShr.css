@@ -1,8 +1,8 @@
-@import 'https://cdnjs.cloudflare.com/ajax/libs/webicons/2.0.0/webicons/webicon-facebook.svg';
+@import 'http://guuibayer.github.io/selectshr/flaticon.css';
 
 .selectShr {
 	transform: scale3d(0.1, 0.2 ,1);
-	transform-origin: 50% 120%;
+	/*transform-origin: 50% 120%;*/
 	transition: opacity 0.3s, transform 0.3s;
 	transition-timing-function: ease, cubic-bezier(0.6,0,0.4,1);
   display: inline-block;
@@ -26,15 +26,15 @@
 	transform: translateX(-50%) rotate3d(0,0,1,45deg);	
 }
 
-.selectShr-open {
+.selectShrOpen {
 	opacity: 1;
 	pointer-events: auto;
 	transform: scale3d(1,1,1);
 }
 
-.icon-facebook,
-.icon-twitter,
-.icon-google-plus {
+.flaticon-circle,
+.flaticon-social,
+.flaticon-social-media {
 	font-size: 20px;
 	font-weight: 100;
 	color: #fff;
