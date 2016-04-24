@@ -4,6 +4,9 @@
 
 > :rocket: Simple component to share a selected text.
 
+## How use
+
+
 ## Contributing
 Find on our [roadmap](https://github.com/guuibayer/selectshr.js/issues/5) the next steps of the project ;)
 <br>
