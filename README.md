@@ -1,70 +1,16 @@
-SelectShr
-============
-Simple component to share a selected text.
+# selectshr.js
 
-Your can see a demo [here](http://codepen.io/GabrielJMJ/pen/RaBJWo).
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/guuibayer/selectshr.js/blob/master/LICENSE.md)
 
-## Installing
-Install via [npm](http://npmjs.com/package/fuckmyscroll)
-```bash
-$ npm install --save fuckmyscroll
-```
+> :rocket: Simple component to share a selected text.
 
-## Usage
-In your script, create an instance of ```FuckMyScroll```
-```js
-const fms = new FuckMyScroll();
-fms.init();
-```
+## Contributing
+Find on our [roadmap](https://github.com/guuibayer/selectshr.js/issues/5) the next steps of the project ;)
+<br>
+Want to contribute? [Follow these recommendations](https://github.com/afonsopacifer/open-source-boilerplate/blob/master/CONTRIBUTING.md).
 
-### Working with anchors
-Truly is not necessary be an anchor, but have ```href``` and ```fmscroll``` attributes.
-```html
-<button href="#about" fmscroll>About</button>
+## History
+See [Releases](https://github.com/afonsopacifer/open-source-boilerplate/releases) for detailed changelog.
 
-<!-- Goes to -->
-<article id="about">
-  <!-- ... -->
-</article>
-```
-
-### Going to page points
-Scroll by cordenates
-```js
-let X = 0,
-  Y = 1200;
-
-fms.scrollTo(X, Y);
-```
-
-### Options
-```js
-const fms = new FuckMyScroll({
-  speed: 14, // 14px/ms,
-  init: () => {},
-  end: () => {}
-});
-```
-
-* **speed**
-It is possible determine the speed, measured in ```pixels/milliseconds```. Default is ```7px/ms```.
-```js
-{
-  speed: 20 // 20px/ms
-}
-```
-* **init**
-Callback executed on proccess initiation.
-```js
-{
-  init: () => { // ... }
-}
-```
-
-* **end**
-Callback executed on proccess finalization.
-```js
-{
-  end: () => { // ... }
-}
-```
+## License
+[MIT License](https://github.com/afonsopacifer/open-source-boilerplate/blob/master/LICENSE.md) © [Guilherme Bayer](https://twitter.com/guuibayer)
