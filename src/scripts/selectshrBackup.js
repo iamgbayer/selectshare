@@ -31,7 +31,7 @@ var SelectShr = (function() {
     };
   };
 
-  $public.init = function() {
+  $public.init = () => {
     var selectShrContainer = document.createElement('div');
     var facebook = document.createElement('a');
     var twitter  = document.createElement('a');
