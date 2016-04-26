@@ -8,14 +8,14 @@ gulp.task('build', () => {
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/scripts'));
 });
 
 gulp.task('minify', () => {
-  gulp.src('./dist/selectshr.js')
+  gulp.src('./dist/scripts/selectshr.js')
     .pipe(uglify())
     .pipe(rename('selectshr.min.js'))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/scripts'));
 });
 
 gulp.task('default', ['build', 'minify']);
