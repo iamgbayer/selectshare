@@ -1,11 +1,11 @@
 {
-  "name": "selectshr.js",
+  "name": "selectshare",
   "version": "1.0.0",
   "description": "Simple component to share a selected text",
   "main": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guuibayer/selectshr.js"
+    "url": "https://github.com/guuibayer/selectshare"
   },
   "keywords": [
     "select",

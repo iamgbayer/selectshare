@@ -4,7 +4,7 @@ const gulp   = require('gulp'),
       rename = require('gulp-rename');
 
 gulp.task('build', () => {
-  gulp.src('./src/scripts/selectshr.js')
+  gulp.src('./src/scripts/selectshare.js')
     .pipe(babel({
       presets: ['es2015']
     }))
@@ -12,9 +12,9 @@ gulp.task('build', () => {
 });
 
 gulp.task('minify', () => {
-  gulp.src('./dist/selectshr.js')
+  gulp.src('./dist/selectshare.js')
     .pipe(uglify())
-    .pipe(rename('selectshr.min.js'))
+    .pipe(rename('selectshare.min.js'))
     .pipe(gulp.dest('./dist'));
 });
 
