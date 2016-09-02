@@ -5,14 +5,14 @@
 	/*transform-origin: 50% 120%;*/
 	transition: opacity 0.3s, transform 0.3s;
 	transition-timing-function: ease, cubic-bezier(0.6,0,0.4,1);
-  display: inline-block;
-  border-radius: 5px;
-  z-index: 9999;
-  position: relative;
-  padding: 8px;
-  opacity: 0;
-  text-align center;
-  background: #262625;
+	display: inline-block;
+	border-radius: 5px;
+	z-index: 9999;
+	position: relative;
+	padding: 8px;
+	opacity: 0;
+	text-align: center;
+	background: #262625;
 }
 
 .selectShr::after {

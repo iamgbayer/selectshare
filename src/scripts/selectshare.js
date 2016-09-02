@@ -1,56 +1,56 @@
 const selectShare = () => {
-  const $public  = {}
-  const $private = {}
+  const _public  = {}
+  const _private = {}
 
-  $private.init = () => {
-    document.addEventListener('mouseup', el => {
-      let x = el.clientX
-      let y = el.clientY
-      let selectionText = getSelectionText().length
-      let selectShr = document.querySelector('.selectshare')
+  _private.init = () => {
+    document.addEventListener('mouseup', element => {
+      let x = element.clientX
+      let y = element.clientY
+      let selectShareText = getSelementectionText().length
+      let selectShareElement = document.querySelector('.select-share')
+      let selectShareClass = selectShare.classList
 
-      selectShrPosition(x, y, selectShr);
+      selectSharePosition(x, y, selectShare)
 
-      if(selectionText > 0)
-        selectShr.classList.add('selectshare-open');
-      else
-        selectShr.classList.remove('selectshare-open');
+      if(!selectionText) {
+        selectShareClass.remove('selectshare-open')
+      }
 
-      console.log(getSelectionText());
-    });
+      return selectShareClass.add('selectshare-open')
+    })
 
     function getSelectionText() {
-      window.getSelection
-        return window.getSelection().toString();
-    };
+        return window.getSelection().toString()
+    }
 
-    function selectShrPosition(selectShrX, selectShrY, selectShr) {
-      selectShr.style.position = 'absolute'
-      selectShr.style.left = (selectShrX - 40) + 'px'
-      selectShr.style.top = (selectShrY - 55) + 'px'
-    };
+    function selectSharePosition(selectShareX, selectShareY, selectShare) {
+      let selectShareStyle = selectShare.style
+
+      selectShareStyle.position = 'absolute'
+      selectShareStyle.left = `${selectShareX}px`
+      selectShareStyle.top = `${selectShareY}px`
+    }
   }
 
-  $public.init = () => {
-    let selectShrContainer = document.createElement('div')
+  _public.init = () => {
+    let selectShareContainer = document.createElement('div')
     let facebook = document.createElement('a')
-    let twitter  = document.createElement('a')
-    let gplus    = document.createElement('a')
+    let twitter = document.createElement('a')
+    let googlePlus = document.createElement('a')
 
     facebook.classList.add('flaticon-circle')
     twitter.classList.add('flaticon-social')
-    gplus.classList.add('flaticon-social-media')
+    googlePlus.classList.add('flaticon-social-media')
 
-    selectShrContainer.appendChild(facebook)
-    selectShrContainer.appendChild(twitter)
-    selectShrContainer.appendChild(gplus)
+    selectShareContainer.appendChild(facebook)
+    selectShareContainer.appendChild(twitter)
+    selectShareContainer.appendChild(gplus)
 
-    selectShrContainer.classList.add('selectShr')
-    document.body.appendChild(selectShrContainer)
-    // selectShrContainer.appendChild(facebook)
+    selectShareContainer.classList.add('select-share')
+    document.body.appendChild(selectShareContainer)
 
-    return $private.init()
+    return _private.init()
   }
 
-  return $public.init()
+  return _public.init()
 }
