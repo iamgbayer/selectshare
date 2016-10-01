@@ -1,38 +1,33 @@
-const selectShare = () => {
-  const _public  = {}
-  const _private = {}
+    const SelectShare = () => {
+        document.addEventListener('mouseup', element => {
+            let x = element.clientX
+            let y = element.clientY
+            let selectShareText = getSelementectionText().length
+            let selectShareElement = document.querySelector('.select-share')
+            let selectShareClass = selectShare.classList
 
-  _private.init = () => {
-    document.addEventListener('mouseup', element => {
-      let x = element.clientX
-      let y = element.clientY
-      let selectShareText = getSelementectionText().length
-      let selectShareElement = document.querySelector('.select-share')
-      let selectShareClass = selectShare.classList
+            selectSharePosition(x, y, selectShare)
 
-      selectSharePosition(x, y, selectShare)
+        if(!selectionText) {
+            selectShareClass.remove('selectshare-open')
+        }
 
-      if(!selectionText) {
-        selectShareClass.remove('selectshare-open')
-      }
+        return selectShareClass.add('selectshare-open')
+      })
 
-      return selectShareClass.add('selectshare-open')
-    })
+        function getSelectionText() {
+            return window.getSelection().toString()
+        }
 
-    function getSelectionText() {
-        return window.getSelection().toString()
+        function selectSharePosition(selectShareX, selectShareY, selectShare) {
+            let selectShareStyle = selectShare.style
+
+            selectShareStyle.position = 'absolute'
+            selectShareStyle.left = `${selectShareX}px`
+            selectShareStyle.top = `${selectShareY}px`
+        }
     }
 
-    function selectSharePosition(selectShareX, selectShareY, selectShare) {
-      let selectShareStyle = selectShare.style
-
-      selectShareStyle.position = 'absolute'
-      selectShareStyle.left = `${selectShareX}px`
-      selectShareStyle.top = `${selectShareY}px`
-    }
-  }
-
-  _public.init = () => {
     let selectShareContainer = document.createElement('div')
     let facebook = document.createElement('a')
     let twitter = document.createElement('a')
@@ -48,9 +43,3 @@ const selectShare = () => {
 
     selectShareContainer.classList.add('select-share')
     document.body.appendChild(selectShareContainer)
-
-    return _private.init()
-  }
-
-  return _public.init()
-}
