@@ -30,4 +30,4 @@ gulp.task('watch', () => {
     gulp.watch(['src/scripts/**.js'], ['babel'])
 })
 
-gulp.task('build', ['lint-standard', 'babel'])
+gulp.task('build', ['minify-css', 'lint-standard', 'babel'])
