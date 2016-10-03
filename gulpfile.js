@@ -1,5 +1,6 @@
 const gulp = require('gulp'),
     babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
     cleanCSS = require('gulp-clean-css'),
     standard = require('gulp-standard')
 
@@ -7,6 +8,9 @@ gulp.task('babel', () => {
      gulp.src('src/scripts/**.js')
         .pipe(babel({
             presets: ['es2015']
+        }))
+        .pipe(uglify().on('error', (e) => {
+            console.log(e);
         }))
     .pipe(gulp.dest('dist/scripts/'))
 })
