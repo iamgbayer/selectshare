@@ -1,37 +1,5 @@
-var SelectShare = function() {
-    this.eventListener = () => {
-        document.addEventListener('mouseup', element => {
-            let x = element.clientX
-            let y = element.clientY
-            let selectShareText = getSelementectionText().length
-            let selectShareElement = document.querySelector('.select-share')
-            let selectShareClass = selectShare.classList
-
-            selectSharePosition(x, y, selectShare)
-
-            if(!selectionText) {
-                selectShareClass.remove('selectshare-open')
-            }
-
-            return selectShareClass.add('selectshare-open')
-        })
-    }
-
-    this.getSelectedText = () => {
-        return window
-                    .getSelection()
-                    .toString()
-    }
-
-    this.getSharePosition = (selectShareX, selectShareY, selectShare) => {
-        let selectShareStyle = selectShare.style
-
-        selectShareStyle.position = 'absolute'
-        selectShareStyle.left = `${selectShareX}px`
-        selectShareStyle.top = `${selectShareY}px`
-    }
-
-    this.createShareTooltip = () => {
+(function SelectShare () {
+    this.createShareTooltip = function () {
         let selectShareContainer = document.createElement('div')
         let facebook = document.createElement('a')
         let twitter = document.createElement('a')
@@ -43,9 +11,44 @@ var SelectShare = function() {
 
         selectShareContainer.appendChild(facebook)
         selectShareContainer.appendChild(twitter)
-        selectShareContainer.appendChild(gplus)
+        selectShareContainer.appendChild(googlePlus)
 
         selectShareContainer.classList.add('select-share')
         document.body.appendChild(selectShareContainer)
+    }()
+
+    this.getSharePosition = function (textHasSelectedX, textHasSelectedY, selectShareElement) {
+        console.log('oi')
+        let selectShareStyle = selectShareElement.style
+
+        selectShareStyle.position = 'absolute'
+        selectShareStyle.left = `${textHasSelectedX}px`
+        selectShareStyle.top = `${textHasSelectedY}px`
     }
-}
+
+    function getSelectedText () {
+        return window.getSelection().toString()
+    }
+
+    this.eventListener = function () {
+        let selectShareElement = document.querySelector('.select-share')
+        let selectShareText = getSelectedText.length
+
+        document.addEventListener('mouseup', function (textHasSelected) {
+            let textHasSelectedX = textHasSelected.clientX
+            let textHasSelectedY = textHasSelected.clientY
+            let selectShareClass = selectShareElement.classList
+
+            getSharePosition(textHasSelectedX, textHasSelectedY, selectShareElement)
+
+            if (!selectShareText) {
+                console.log(selectShareText)
+                return selectShareClass.add('select-share-open')
+            } else {
+                console.log(selectShareText)
+                return selectShareClass.remove('select-share-open')
+            }
+        })
+    }()
+
+})()

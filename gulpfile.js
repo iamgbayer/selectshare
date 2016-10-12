@@ -1,8 +1,8 @@
-const gulp = require('gulp'),
-    babel = require('gulp-babel'),
-    uglify = require('gulp-uglify'),
-    cleanCSS = require('gulp-clean-css'),
-    standard = require('gulp-standard')
+const gulp = require('gulp')
+const babel = require('gulp-babel')
+const uglify = require('gulp-uglify')
+const cleanCSS = require('gulp-clean-css')
+const standard = require('gulp-standard')
 
 gulp.task('babel', () => {
      gulp.src('src/scripts/**.js')
@@ -10,16 +10,16 @@ gulp.task('babel', () => {
             presets: ['es2015']
         }))
         .pipe(uglify().on('error', (e) => {
-            console.log(e);
+            console.log(e)
         }))
-    .pipe(gulp.dest('dist/scripts/'))
+        .pipe(gulp.dest('dist/scripts/'))
 })
 
 gulp.task('minify-css', () => {
     gulp.src('src/styles/**.css')
         .pipe(cleanCSS({ processImport: false }))
-        .pipe(gulp.dest('dist/styles'));
-});
+        .pipe(gulp.dest('dist/styles/'))
+})
 
 gulp.task('lint-standard', () => {
     gulp.src(['src/scripts/**.js'])
@@ -32,6 +32,7 @@ gulp.task('lint-standard', () => {
 
 gulp.task('watch', () => {
     gulp.watch(['src/scripts/**.js'], ['babel'])
+    gulp.watch(['src/styles/**.css'], ['minify-css'])
 })
 
 gulp.task('build', ['minify-css', 'lint-standard', 'babel'])
