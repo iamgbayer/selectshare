@@ -6,7 +6,12 @@
   "author": "Guilherme Bayer",
   "content_scripts": [
     {
-      "js": ["selectshare.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "./dist/scripts/selectshare.js"
+      ]
     }
   ]
 }
