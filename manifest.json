@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "selectshare",
+  "description": "A chrome extension to share a selected text",
+  "version": "1.0.0",
+  "author": "Guilherme Bayer",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "./dist/scripts/selectshare.js"
+      ],
+      "css": [
+        "./src/styles/selectshare.css"
+      ]
+    }
+  ]
+}
