@@ -4,14 +4,6 @@ const gulp = require('gulp')
       , cleanCSS = require('gulp-clean-css')
       , standard = require('gulp-standard');
 
-gulp.task('build', () => {
-  gulp.src('./src/scripts/**.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('./dist/scripts'));
-});
-
 gulp.task('babel', () => {
   gulp.src('src/scripts/**.js')
     .pipe(babel({
@@ -33,7 +25,7 @@ gulp.task('minify-css', () => {
       .pipe(gulp.dest('dist/styles/'));
 });
 
-gulp.task('watch', () => {
+gulp.task('default', () => {
     gulp.watch(['src/scripts/**.js'], ['babel']);
     gulp.watch(['src/styles/**.css'], ['minify-css']);
 })
