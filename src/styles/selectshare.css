@@ -1,5 +1,3 @@
-@import 'http://guuibayer.github.io/select-share/flaticon.css';
-
 .select-share {
 	transform: scale3d(0.1, 0.2, 1);
 	transition: opacity 0.3s, transform 0.3s;
@@ -31,9 +29,9 @@
 	transition: opacity 0.3s, transform 0.3s;
 }
 
-.flaticon-circle,
-.flaticon-social,
-.flaticon-social-media {
+.selectshare-facebook,
+.selectshare-twitter,
+.selectshare-google {
 	font-size: 20px;
 	font-weight: 100;
 	color: #fff;
@@ -43,5 +41,5 @@
 	margin: 0 5px;
 	position: relative;
 	z-index: 5;
-  cursor: pointer;
+	cursor: pointer;
 }
