@@ -1,3 +1,5 @@
+@import '../icons/icons.css'; 
+
 .select-share {
 	transform: scale3d(0.1, 0.2, 1);
 	transition: opacity 0.3s, transform 0.3s;
@@ -42,4 +44,5 @@
 	position: relative;
 	z-index: 5;
 	cursor: pointer;
+	font-family: 'Icons';
 }

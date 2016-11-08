@@ -1,20 +1,17 @@
 class SelectShare {
   static createTooltip () {
-    let selectShareContainer = document.createElement('div');
-    let facebook = document.createElement('a');
-    let twitter = document.createElement('a');
-    let googlePlus = document.createElement('a');
+    let tooltip = document.createElement('div');
+    let socials = ['facebook', 'twitter', 'google'];
 
-    facebook.classList.add('flaticon-circle');
-    twitter.classList.add('flaticon-social');
-    googlePlus.classList.add('flaticon-social-media');
+    socials.map( social => {
+      let element = document.createElement('a');
 
-    selectShareContainer.appendChild(facebook);
-    selectShareContainer.appendChild(twitter);
-    selectShareContainer.appendChild(googlePlus);
+      element.classList.add(`selectshare-${social}`); 
+      tooltip.appendChild(element);
+    });
 
-    selectShareContainer.classList.add('select-share');
-    document.body.appendChild(selectShareContainer);
+    tooltip.classList.add('select-share');
+    document.body.appendChild(tooltip);
   }
 
   getTooltipPosition (textHasSelectedX, textHasSelectedY, selectShareElement) {
@@ -26,7 +23,7 @@ class SelectShare {
   }
 
   static getSelectedText () {
-    return window.getSelection().toString()
+    return window.getSelection().toString();
   }
 
   static getCurrentPosition () {
@@ -35,18 +32,18 @@ class SelectShare {
     let selectShareElement = document.querySelector('.select-share');
     let selectShareText = this.getSelectedText.length;
 
-    document.addEventListener('mouseup', function (textHasSelected) {
+    document.addEventListener('click', function (textHasSelected) {
       let textHasSelectedX = textHasSelected.clientX;
       let textHasSelectedY = textHasSelected.clientY;
       let selectShareClass = selectShareElement.classList;
 
       new SelectShare().getTooltipPosition(textHasSelectedX, textHasSelectedY, selectShareElement);
 
-      if (!selectShareText) {
+      if (selectShareText) {
         return selectShareClass.remove('select-share-open');
-      } else {
-        return selectShareClass.add('select-share-open');
-      }
+      } 
+
+      return selectShareClass.toggle('select-share-open');
     })
   }
 }
