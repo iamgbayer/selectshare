@@ -10,7 +10,7 @@
         "<all_urls>"
       ],
       "js": [
-        "./src/scripts/selectshare.js"
+        "./dist/scripts/selectshare.js"
       ],
       "css": [
         "./src/styles/selectshare.css"
