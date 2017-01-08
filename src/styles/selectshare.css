@@ -1,9 +1,19 @@
-@import '../icons/icons.css'; 
+@font-face {
+  font-family: 'Selectshare';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/font.eot');
+  src: url('../fonts/font.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/font.woff') format('woff'),
+    url('../fonts/font.ttf') format('truetype'),
+    url('../fonts/font.svg#font') format('svg');
+}
 
-.select-share {
-	transform: scale3d(0.1, 0.2, 1);
-	transition: opacity 0.3s, transform 0.3s;
-	transition-timing-function: ease, cubic-bezier(0.6, 0, 0.4, 1);
+.selectshare-facebook:before { content: '\f100'; }
+.selectshare-google:before { content: '\f101'; }
+.selectshare-twitter:before { content: '\f102'; }
+
+.selectshare {
 	display: inline-block;
 	border-radius: 5px;
 	z-index: 9999;
@@ -13,7 +23,7 @@
 	background: #262625;
 }
 
-.select-share::after {
+.selectshare::after {
 	content: '';
 	position: absolute;
 	width: 14px;
@@ -24,11 +34,9 @@
 	transform: translateX(-50%) rotate3d(0, 0, 1, 45deg);
 }
 
-.select-share-open {
+.selectshare-open {
 	opacity: 1;
 	pointer-events: auto;
-	transform: scale3d(1, 1, 1);
-	transition: opacity 0.3s, transform 0.3s;
 }
 
 .selectshare-facebook,
@@ -44,5 +52,5 @@
 	position: relative;
 	z-index: 5;
 	cursor: pointer;
-	font-family: 'Icons';
+	font-family: 'Selectshare';
 }

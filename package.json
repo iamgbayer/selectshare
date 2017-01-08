@@ -20,6 +20,8 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^2.0.13",
+    "gulp-fontmin": "^0.7.4",
+    "gulp-rename": "^1.2.2",
     "gulp-standard": "^8.0.2",
     "gulp-uglify": "^2.0.0"
   },
