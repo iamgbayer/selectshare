@@ -6,7 +6,17 @@
 > :rocket: A chrome extension to share a selected text.
 
 ## How use
-Extension in construction, help build it!
+
+```
+# First install dependencies, with command below
+$ npm i
+
+# In first time, run this task
+$ gulp build
+
+# To gulp wath changes in development, use
+$ gulp
+```
 
 ## Contributing
 See the [projects](https://github.com/guuibayer/selectshare/projects/1).

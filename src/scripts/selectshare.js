@@ -40,6 +40,9 @@ class SelectShare {
   };
 
 
+  /**
+   * Here, the new position is set
+   */
   getTooltipPosition(axisX, axisY, element) {
     let elementStyle = element.style;
 
@@ -49,6 +52,10 @@ class SelectShare {
   };
 
 
+  /**
+   * This method retrieve the current position
+   * from selected text
+   */
   getCurrentPosition() {
     this.createTooltip();
 
