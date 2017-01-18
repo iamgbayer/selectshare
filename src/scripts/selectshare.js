@@ -7,9 +7,9 @@ class SelectShare {
         'google'
       ],
       url: [
-        'https://www.facebook.com/sharer.php?u={url}',
-        'https://twitter.com/intent/tweet?url={url}',
-        'https://plus.google.com/share?url={url}'
+        'https://www.facebook.com/sharer.php?u=',
+        'https://twitter.com/intent/tweet?url=',
+        'https://plus.google.com/share?url='
       ]
     }
   }
@@ -30,6 +30,16 @@ class SelectShare {
   };
 
 
+  appendSocialAddress() {
+
+  };
+
+
+  getSelectedText() {
+    return window.getSelection().toString().length;
+  };
+
+
   getTooltipPosition(axisX, axisY, element) {
     let elementStyle = element.style;
 
@@ -39,28 +49,18 @@ class SelectShare {
   };
 
 
-  appendSocialAddress() {
-
-  };
-
-
-  getSelectedText() {
-    return window.getSelection().toString();
-  };
-
-
-  static getCurrentPosition() {
-    SelectShare.createTooltip();
+  getCurrentPosition() {
+    this.createTooltip();
 
     let element = document.querySelector('.selectshare');
-    let selectShareText = SelectShare.getSelectedText().length;
+    let selectShareText = this.getSelectedText();
 
     document.addEventListener('click', function (selectedText) {
       let selectedTextX = selectedText.clientX;
       let selectedTextY = selectedText.clientY;
       let classFromElement = element.classList;
 
-      SelectShare.getTooltipPosition(selectedTextX, selectedTextY, element);
+      this.getTooltipPosition(selectedTextX, selectedTextY, element);
 
       if (selectShareText) {
         return classFromElement.remove('selectshare-open');
@@ -71,4 +71,4 @@ class SelectShare {
   };
 }
 
-SelectShare.getCurrentPosition();
+new SelectShare().getCurrentPosition();

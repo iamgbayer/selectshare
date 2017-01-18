@@ -16,7 +16,6 @@
   "author": "Guilherme Bayer",
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.11.12",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean-css": "^2.0.13",
