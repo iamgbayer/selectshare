@@ -1,5 +1,20 @@
 class SelectShare {
-  static createTooltip () {
+  getSocials() {
+    return {
+      title: [
+        'facebook',
+        'twitter',
+        'google'
+      ],
+      url: [
+        'https://www.facebook.com/sharer.php?u={url}',
+        'https://twitter.com/intent/tweet?url={url}',
+        'https://plus.google.com/share?url={url}'
+      ]
+    }
+  }
+
+  createTooltip() {
     let tooltip = document.createElement('div');
     let socials = ['facebook', 'twitter', 'google'];
 
@@ -12,44 +27,48 @@ class SelectShare {
 
     tooltip.classList.add('selectshare');
     document.body.appendChild(tooltip);
-  }
+  };
 
-  static getTooltipPosition (textHasSelectedX, textHasSelectedY, selectShareElement) {
-    let selectShareStyle = selectShareElement.style;
 
-    selectShareStyle.position = 'absolute';
-    selectShareStyle.left = `${textHasSelectedX - 50}px`;
-    selectShareStyle.top = `${textHasSelectedY - 70}px`;
-  }
+  getTooltipPosition(axisX, axisY, element) {
+    let elementStyle = element.style;
 
-  appendSocialAddress () {
+    elementStyle.position = 'absolute';
+    elementStyle.left = `${axisX - 50}px`;
+    elementStyle.top = `${axisY - 70}px`;
+  };
 
-  }
 
-  static getSelectedText () {
+  appendSocialAddress() {
+
+  };
+
+
+  getSelectedText() {
     return window.getSelection().toString();
-  }
+  };
 
-  static getCurrentPosition () {
-    this.createTooltip();
 
-    let selectShareElement = document.querySelector('.selectshare');
-    let selectShareText = this.getSelectedText().length;
+  static getCurrentPosition() {
+    SelectShare.createTooltip();
 
-    document.addEventListener('click', function (textHasSelected) {
-      let textHasSelectedX = textHasSelected.clientX;
-      let textHasSelectedY = textHasSelected.clientY;
-      let selectShareClass = selectShareElement.classList;
+    let element = document.querySelector('.selectshare');
+    let selectShareText = SelectShare.getSelectedText().length;
 
-      SelectShare.getTooltipPosition(textHasSelectedX, textHasSelectedY, selectShareElement);
+    document.addEventListener('click', function (selectedText) {
+      let selectedTextX = selectedText.clientX;
+      let selectedTextY = selectedText.clientY;
+      let classFromElement = element.classList;
+
+      SelectShare.getTooltipPosition(selectedTextX, selectedTextY, element);
 
       if (selectShareText) {
-        return selectShareClass.remove('selectshare-open');
+        return classFromElement.remove('selectshare-open');
       }
 
-      return selectShareClass.toggle('selectshare-open');
+      return classFromElement.toggle('selectshare-open');
     });
-  }
+  };
 }
 
 SelectShare.getCurrentPosition();
