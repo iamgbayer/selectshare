@@ -1,4 +1,14 @@
-const SelectShare = function() {
+(function() {
+  this.constructor = () => {
+    this.container = document.querySelector('selectshare')
+  }
+
+
+  this.initialize = () => {
+
+  }
+
+
   this.createTooltip = () => {
     let tooltip = document.createElement('div')
     let socials = ['facebook', 'twitter', 'google']
@@ -14,7 +24,12 @@ const SelectShare = function() {
     document.body.appendChild(tooltip)
   }
 
-  this.getTooltipPosition = (textHasSelectedX, textHasSelectedY, selectShareElement) => {
+
+  this.getTooltipPosition = (
+    textHasSelectedX,
+    textHasSelectedY,
+    selectShareElement
+  ) => {
     let selectShareStyle = selectShareElement.style
 
     selectShareStyle.position = 'absolute'
@@ -22,9 +37,11 @@ const SelectShare = function() {
     selectShareStyle.top = `${textHasSelectedY}px`
   }
 
+
   this.getSelectedText = () => {
     return window.getSelection().toString()
   }
+
 
   this.getCurrentPosition = () => {
     this.createTooltip()
@@ -46,4 +63,6 @@ const SelectShare = function() {
       return selectShareClass.toggle('select-share-open')
     })
   }
-}
+
+  return this.initialize()
+}())
