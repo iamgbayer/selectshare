@@ -2,7 +2,8 @@ module.exports = {
   scripts: {
     src: "./src/scripts/selectshare.js",
     watch: "./src/scripts/selectshare.js",
-    destination: "./dist/scripts"
+    destination: "./dist/scripts",
+    compiled: "./dist/scripts/selectshare.js"
   },
   stylesheets: {
     src: [
