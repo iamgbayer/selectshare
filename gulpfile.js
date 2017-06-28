@@ -4,7 +4,7 @@ const gulp = require('gulp')
       , minify = require('./tasks/minify')
 
 gulp.task('default', () => {
-  gulp.watch(paths.scripts.watch, ['compile:scripts', 'minify:scripts'])
+  gulp.watch(paths.scripts.watch, ['compile:scripts'])
   gulp.watch(paths.stylesheets.watch, ['minify:stylesheets'])
 })
 
