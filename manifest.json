@@ -13,7 +13,11 @@
         "./dist/scripts/selectshare.js"
       ],
       "css": [
-        "./src/styles/selectshare.css"
+        "./dist/stylesheets/selectshare.min.css",
+        "./dist/icons/icons.css"
+      ],
+      "web_accessible_resources": [
+        "./dist/icons/*"
       ]
     }
   ]

@@ -17,14 +17,17 @@
 
     this.socials = [
       {
+        selector: "selectshare-facebook",
         title: "facebook",
         url: "https://www.facebook.com/sharer/sharer.php?u=",
       },
       {
+        selector: "selectshare-twitter",
         title: "twitter",
         url: "https://twitter.com/home?status=",
       },
       {
+        selector: "selectshare-google",
         title: "google",
         url: "https://plus.google.com/share?url=",
       }
@@ -38,10 +41,9 @@
    */
   this.createTooltip = () => {
     this.socials.map(social => {
-      let element = document.createElement('a')
+      let element = document.createElement('span')
 
-      element.classList.add(`selectshare-${social.title}`)
-      element.setAttribute('href', social.url)
+      element.classList.add('selectshare-hyperlink', `selectshare-${social.title}`)
 
       this.tooltip.appendChild(element)
     })
@@ -50,15 +52,11 @@
   }
 
 
-  this.changeTooltip = text => {
-    this.socials.map(social => {
-
-    })
-  }
-
-
   /**
    * Retrieve current position from tooltip.
+   *
+   * @param {integer} axisX
+   * @param {integer} axisY
    */
   this.getTooltipPosition = (axisX, axisY) => {
     let styleOfTooltip = this.tooltip.style
@@ -85,6 +83,27 @@
   }
 
 
+  this.valorizeHyperlinks = () => {
+    let hyperlinks = document.querySelectorAll('.selectshare-hyperlink')
+    let text = this.getSelectedText()
+
+    hyperlinks.forEach(hyperlink => {
+      let contains = this.socials.filter(social => hyperlink.classList.contains(social.selector))
+
+      if (!contains) {
+        return
+      }
+
+      hyperlink.addEventListener('click', () => {
+        window.open(
+          `${contains[0].url}${text}`
+        )
+      })
+
+    })
+  }
+
+
   /**
    * Controls the state of the tooltip.
    */
@@ -97,6 +116,7 @@
         return
       }
 
+      this.valorizeHyperlinks()
       this.tooltip.classList.add('selectshare-opened')
     })
   }
