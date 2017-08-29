@@ -18,17 +18,17 @@
     this.socials = [
       {
         selector: "selectshare-facebook",
-        title: "facebook",
+        name: "facebook",
         url: "https://www.facebook.com/sharer/sharer.php?u=",
       },
       {
         selector: "selectshare-twitter",
-        title: "twitter",
+        name: "twitter",
         url: "https://twitter.com/home?status=",
       },
       {
         selector: "selectshare-google",
-        title: "google",
+        name: "google",
         url: "https://plus.google.com/share?url=",
       }
     ]
@@ -43,7 +43,7 @@
     this.socials.map(social => {
       let element = document.createElement('span')
 
-      element.classList.add('selectshare-hyperlink', `selectshare-${social.title}`)
+      element.classList.add('selectshare-hyperlink', `selectshare-${social.name}`)
 
       this.tooltip.appendChild(element)
     })
@@ -94,12 +94,11 @@
         return
       }
 
-      hyperlink.addEventListener('click', () => {
-        window.open(
-          `${contains[0].url}${text}`
-        )
-      })
+      let content = `${contains[0].url}${window.location.href}&title=${text}`
+      let name = contains[0].name
+      let features = 'width=450,height=350'
 
+      hyperlink.addEventListener('click', () => window.open(content, name, features))
     })
   }
 
