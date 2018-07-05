@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Selectshare';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/font.eot');
+  src: url('../fonts/font.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/font.woff') format('woff'),
+    url('../fonts/font.ttf') format('truetype'),
+    url('../fonts/font.svg#font') format('svg');
+}
+
+.selectshare__facebook:before { content: '\f100'; }
+.selectshare__google:before { content: '\f101'; }
+.selectshare__twitter:before { content: '\f102'; }
+
+.selectshare {
+	display: inline-block;
+	border-radius: 5px;
+	z-index: 9999;
+	padding: 8px;
+	opacity: 0;
+	text-align: center;
+	background: #262625;
+}
+
+.selectshare::after {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	left: 50%;
+	top: 30px;
+	background: #262625;
+	transform: translateX(-50%) rotate3d(0, 0, 1, 45deg);
+}
+
+.selectshare--open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.selectshare__facebook,
+.selectshare__twitter,
+.selectshare__google {
+	font-size: 20px;
+	font-weight: 100;
+	color: #fff;
+	display: inline-block;
+	vertical-align: middle;
+	text-decoration: none;
+	margin: 0 5px;
+	position: relative;
+	z-index: 5;
+	cursor: pointer;
+	font-family: 'Selectshare', sans-serif;
+}
