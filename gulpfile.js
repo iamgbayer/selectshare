@@ -3,7 +3,7 @@ const gulp = require('gulp')
       , uglify = require('gulp-uglify')
       , fontmin = require('gulp-fontmin')
       , rename = require('gulp-rename')
-      , cleancss = require('gulp-clean-css');
+      , cleancss = require('gulp-clean-css')
 
 
 let path = {
@@ -23,7 +23,7 @@ let path = {
 gulp.task('fonts', () => {
   gulp.src(path.src.fonts)
     .pipe(fontmin())
-    .pipe(gulp.dest(path.dist.fonts));
+    .pipe(gulp.dest(path.dist.fonts))
 });
 
 
@@ -32,22 +32,22 @@ gulp.task('scripts', () => {
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify())
     .pipe(rename('selectshare.min.js'))
-    .pipe(gulp.dest(path.dist.scripts));
+    .pipe(gulp.dest(path.dist.scripts))
 });
 
 
 gulp.task('styles', () => {
   gulp.src(path.src.styles)
     .pipe(cleancss({ processImport: false }))
-    .pipe(gulp.dest(path.dist.styles));
+    .pipe(gulp.dest(path.dist.styles))
 });
 
 
 gulp.task('default', () => {
-  gulp.watch(path.src.scripts, ['scripts']);
-  gulp.watch(path.src.styles, ['styles']);
-  gulp.watch(path.src.fonts, ['fonts']);
+  gulp.watch(path.src.scripts, ['scripts'])
+  gulp.watch(path.src.styles, ['styles'])
+  gulp.watch(path.src.fonts, ['fonts'])
 })
 
 
-gulp.task('build', ['scripts', 'styles', 'fonts']);
+gulp.task('build', ['scripts', 'styles', 'fonts'])

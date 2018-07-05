@@ -1,5 +1,5 @@
 {
-  "name": "Selectshare",
+  "name": "selectshare",
   "version": "1.0.0",
   "description": "A chrome extension to share a selected text",
   "main": "",
@@ -11,7 +11,9 @@
     "select",
     "share",
     "chrome extension",
-    "extension"
+    "extension",
+    "select share",
+    "selectshare"
   ],
   "author": "Guilherme Bayer",
   "license": "MIT",

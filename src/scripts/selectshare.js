@@ -1,4 +1,4 @@
-(new function Selectshare () {
+(new function() {
   const wrapper = document.querySelector('.selectshare')
 
   const execute = () => {
