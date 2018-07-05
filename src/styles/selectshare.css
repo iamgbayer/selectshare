@@ -9,9 +9,9 @@
     url('../fonts/font.svg#font') format('svg');
 }
 
-.selectshare-facebook:before { content: '\f100'; }
-.selectshare-google:before { content: '\f101'; }
-.selectshare-twitter:before { content: '\f102'; }
+.selectshare__facebook:before { content: '\f100'; }
+.selectshare__google:before { content: '\f101'; }
+.selectshare__twitter:before { content: '\f102'; }
 
 .selectshare {
 	display: inline-block;
@@ -34,14 +34,14 @@
 	transform: translateX(-50%) rotate3d(0, 0, 1, 45deg);
 }
 
-.selectshare-open {
+.selectshare--open {
 	opacity: 1;
 	pointer-events: auto;
 }
 
-.selectshare-facebook,
-.selectshare-twitter,
-.selectshare-google {
+.selectshare__facebook,
+.selectshare__twitter,
+.selectshare__google {
 	font-size: 20px;
 	font-weight: 100;
 	color: #fff;
@@ -52,5 +52,5 @@
 	position: relative;
 	z-index: 5;
 	cursor: pointer;
-	font-family: 'Selectshare';
+	font-family: 'Selectshare', sans-serif;
 }
