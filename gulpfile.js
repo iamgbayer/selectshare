@@ -3,13 +3,14 @@ const gulp = require('gulp')
       , uglify = require('gulp-uglify')
       , fontmin = require('gulp-fontmin')
       , rename = require('gulp-rename')
+      , watch = require('gulp-watch')
       , cleancss = require('gulp-clean-css')
 
 
-let path = {
+const path = {
   src: {
-    scripts: "src/scripts/selectshare.js",
-    styles: "src/styles/selectshare.css",
+    scripts: "src/scripts/*.js",
+    styles: "src/styles/*.css",
     fonts: "src/fonts/*"
   },
   dist: {
@@ -30,7 +31,7 @@ gulp.task('fonts', () => {
 gulp.task('scripts', () => {
   gulp.src(path.src.scripts)
     .pipe(babel({ presets: ['es2015'] }))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename('selectshare.min.js'))
     .pipe(gulp.dest(path.dist.scripts))
 });
@@ -39,15 +40,16 @@ gulp.task('scripts', () => {
 gulp.task('styles', () => {
   gulp.src(path.src.styles)
     .pipe(cleancss({ processImport: false }))
+    .pipe(rename('selectshare.min.css'))
     .pipe(gulp.dest(path.dist.styles))
 });
 
 
 gulp.task('default', () => {
-  gulp.watch(path.src.scripts, ['scripts'])
-  gulp.watch(path.src.styles, ['styles'])
-  gulp.watch(path.src.fonts, ['fonts'])
+  watch(path.dist.scripts, () => console.log('oi'))
+  watch(path.dist.styles)
+  watch(path.dist.fonts)
 })
 
 
-gulp.task('build', ['scripts', 'styles', 'fonts'])
+gulp.task('build', gulp.series('scripts', 'styles', 'fonts'))

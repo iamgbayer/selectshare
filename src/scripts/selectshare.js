@@ -1,13 +1,35 @@
-(new function() {
-  const wrapper = document.querySelector('.selectshare')
+(function() {
+
+  /**
+   * @returns {HTMLDivElement}
+   */
+  const createTooltip = () => {
+    let tooltip = document.createElement('div')
+    let socials = ['facebook', 'twitter', 'google']
+
+    socials.map(social => {
+      let element = document.createElement('a')
+
+      element.classList.add(`selectshare__${social}`)
+      tooltip.appendChild(element)
+    })
+
+    tooltip.classList.add('selectshare')
+    document.body.appendChild(tooltip)
+
+    return tooltip
+  }
+
+  const wrapper = createTooltip()
 
   const execute = () => {
-    createTooltip()
-
     document.addEventListener('click', event => {
       let axisX = event.clientX
       let axisY = event.clientY
+
       let classes = wrapper.classList
+
+      console.log(event)
 
       applyNewTooltipPosition(axisX, axisY)
 
@@ -33,21 +55,6 @@
         'https://plus.google.com/share?url='
       ]
     }
-  }
-
-  const createTooltip = () => {
-    let tooltip = document.createElement('div')
-    let socials = ['facebook', 'twitter', 'google']
-
-    socials.map(social => {
-      let element = document.createElement('a')
-
-      element.classList.add(`selectshare__${social}`)
-      tooltip.appendChild(element)
-    });
-
-    tooltip.classList.add('selectshare')
-    document.body.appendChild(tooltip)
   }
 
   /**
